@@ -1,0 +1,29 @@
+---
+title: "Reproducible Document"
+author: "rostools" 
+format: html
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+## Writing R code
+
+2 + 2
+
+```{r}
+2 +2 
+```
+## About me
+- Sarah
+- Affiliated at The Parker Institute, Bispebjerg og Frederikberg Hospitaler
+- Københavns Universitet
+**Jeg er ph.d.-studerende på 2. år**
+*Jeg bor i København*
+
+## Simple code
+```{r}
+3*3
+```
+

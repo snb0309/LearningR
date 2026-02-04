@@ -2,6 +2,8 @@ TODO: Add more to the title of your project here
 
 rostools teaching R
 
+Hej
+
 # LearningR:
 
 TODO: Give a brief description of what your project is about
@@ -38,3 +40,5 @@ You'll need to have remotes installed for this to work.
 For more information on this folder and file workflow and setup, check
 out the [prodigenr](https://rostools.github.io/prodigenr) online
 documentation.
+
+docs/learning.qmd

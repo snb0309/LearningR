@@ -270,3 +270,73 @@ post_meal_data %>%
   ) %>%
   filter(percent_body_fat > 30)
 ```
+
+## Visualizing with a jitter plot
+
+```{r}
+tidied_post_meal_data %>%
+  mutate(overweight = if_else(BMI >= 25, "Overweight", "Not overweight")) %>%
+  ggplot(aes(x = overweight, y = insulin_glucose_ratio)) +
+  geom_jitter()
+```
+```{r}
+tidied_post_meal_data %>%
+  mutate(overweight = if_else(BMI >= 25, "Overweight", "Not overweight")) %>%
+  ggplot(aes(x = overweight, y = insulin_glucose_ratio)) +
+  geom_boxplot()
+```
+```{r}
+tidied_post_meal_data %>%
+  mutate(overweight = if_else(BMI >= 25, "Overweight", "Not overweight")) %>%
+  ggplot(aes(x = overweight, y = insulin_glucose_ratio)) +
+  geom_violin()
+```
+```{r}
+tidied_post_meal_data %>%
+  mutate(overweight = if_else(BMI >= 25, "Overweight", "Not overweight")) %>%
+  ggplot(aes(x = overweight, y = insulin_glucose_ratio)) +
+  geom_jitter()
+```
+## Plotting three or more variables
+```{r}
+tidied_post_meal_data %>%
+  filter(BMI < 30) %>%
+  ggplot(aes(x = Age, y = auc_insulin, colour = Group)) +
+  geom_point()
+```
+```{r}
+tidied_post_meal_data %>%
+  filter(BMI < 30) %>%
+  mutate(young = if_else(Age < 40, "Young", "Old")) %>%
+  ggplot(aes(x = Age, y = auc_insulin, colour = Group)) +
+  geom_point() +
+  facet_grid(cols = vars(young))
+```
+```{r}
+tidied_post_meal_data %>%
+  filter(BMI < 30) %>%
+  mutate(young = if_else(Age < 40, "Young", "Old")) %>%
+  ggplot(aes(x = BMI, y = auc_insulin, colour = Group)) +
+  geom_point() +
+  facet_grid(cols = vars(young))
+```
+```{r}
+tidied_post_meal_data %>%
+  filter(BMI < 30) %>%
+  mutate(young = if_else(Age < 40, "Young", "Old")) %>%
+  ggplot(aes(x = BMI, y = auc_insulin, colour = Group)) +
+  geom_point() +
+  facet_grid(rows = vars(young))
+```
+```{r}
+tidied_post_meal_data %>%
+  filter(BMI < 30) %>%
+  mutate(young = if_else(Age < 40, "Young", "Old")) %>%
+  ggplot(aes(x = BMI, y = insulin_glucose_ratio, colour = Group)) +
+  geom_point() +
+  facet_grid(rows = vars(young)) +
+  labs(
+    x = "Body Mass Index (BMI)",
+    y = "Insulin to glucose ratio"
+  )
+```
